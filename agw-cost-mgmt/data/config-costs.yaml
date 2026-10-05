@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+config:
+  database:
+    url: sqlite:///root/.config/agentgateway/data.db
+  modelCatalog:
+  - file: /root/.config/agentgateway/cost-catalog.json
+gateways:
+  default:
+    port: 4000
+ui:
+  gateways: default
+llm:
+  models:
+  - name: openai/*
+    provider: openAI
+    params:
+      apiKey: $OPENAI_API_KEY
+    transformation:
+      model: llmRequest.model.stripPrefix("openai/")

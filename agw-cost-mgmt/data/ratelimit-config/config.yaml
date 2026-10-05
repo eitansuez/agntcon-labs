@@ -1,0 +1,12 @@
+domain: token-budgets
+descriptors:
+- key: group
+  value: engr
+  rate_limit:
+    unit: minute
+    requests_per_unit: 200
+- key: group
+  value: mktg
+  rate_limit:
+    unit: minute
+    requests_per_unit: 50

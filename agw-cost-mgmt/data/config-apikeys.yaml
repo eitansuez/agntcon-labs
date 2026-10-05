@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+config:
+  database:
+    url: sqlite:///root/.config/agentgateway/data.db
+  modelCatalog:
+  - file: /root/.config/agentgateway/cost-catalog.json
+gateways:
+  default:
+    port: 4000
+ui:
+  gateways: default
+llm:
+  policies:
+    apiKey:
+      mode: strict
+      keys:
+      - key: agw_sk_mZPNQa88c7xI5FL1ALauytmqXWdafhUs
+        metadata:
+          group: engr
+          name: Engineering team
+          id: de3f8007-ade0-4cc0-baec-27ad91a4653b
+      - key: agw_sk_6KNTk5qnp4xstJnusgfcsUkTTCdI0cih
+        metadata:
+          group: mktg
+          name: Marketing team
+          id: 3e38cd74-617e-4fb9-af3d-c774d08f7f49
+  models:
+  - name: openai/*
+    provider: openAI
+    params:
+      apiKey: $OPENAI_API_KEY
+    transformation:
+      model: llmRequest.model.stripPrefix("openai/")

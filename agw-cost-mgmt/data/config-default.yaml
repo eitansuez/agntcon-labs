@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+config:
+  database:
+    url: sqlite:///root/.config/agentgateway/data.db
+gateways:
+  default:
+    port: 4000
+ui:
+  gateways: default
