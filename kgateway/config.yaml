@@ -1,0 +1,6 @@
+# Measured with the cluster up and the lesson finished: about 1.2 GB
+# resident and under one CPU. 4 GB and 2 vCPUs leaves room for a pod start.
+memory_mib: 4096
+vcpus: 2
+# The build disk holds the cluster and the images the lesson would pull.
+disk_gib: 16
