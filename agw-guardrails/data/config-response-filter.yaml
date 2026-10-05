@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+gateways:
+  default:
+    port: 4000
+ui:
+  gateways: default
+llm:
+  models:
+  - name: openai/*
+    provider: openAI
+    params:
+      apiKey: $OPENAI_API_KEY
+    transformation:
+      model: llmRequest.model.stripPrefix("openai/")
+    guardrails:
+      response:
+      - regex:
+          action: mask
+          rules:
+          - pattern: '\(\d{3}\)\s?\d{3}-\d{4}'
