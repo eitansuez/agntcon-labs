@@ -1,0 +1,4 @@
+title: Federate MCP Servers with agentgateway
+description: Learn to federate multiple MCP servers behind agentgateway.
+# The workshop allows 900 seconds.
+time_limit: 15m

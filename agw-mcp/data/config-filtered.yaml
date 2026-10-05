@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://agentgateway.dev/schema/config
+mcp:
+  prefixMode: never
+  policies:
+    mcpAuthorization:
+      rules:
+      - 'mcp.tool.name == "echo"'
+      - 'mcp.tool.name == "search"'
+  targets:
+  - name: everything
+    mcp:
+      host: http://localhost:3001/mcp
+  - name: search
+    mcp:
+      host: https://search.solo.io/mcp
