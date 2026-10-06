@@ -1,0 +1,15 @@
+---
+apiVersion: enterpriseagentgateway.solo.io/v1alpha1
+kind: EnterpriseAgentgatewayBackend
+metadata:
+  name: mcp-search-backend
+spec:
+  entMcp:
+    toolMode: Search
+    targets:
+    - name: mcp-target
+      static:
+        backendRef:
+          name: mcp-everything
+        port: 3001
+        protocol: StreamableHTTP
