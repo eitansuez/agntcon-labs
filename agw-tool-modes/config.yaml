@@ -2,6 +2,8 @@
 memory_mib: 4096
 vcpus: 2
 disk_gib: 16
+# scripts/labs saves a snapshot once this disk is current. Launch does not read this.
+snapshot: true
 title: Comparing MCP tool modes in agentgateway for cost control
 description: Learn about standard, search and code modes for MCP in agentgateway enterprise
 # The workshop allows 900 seconds.

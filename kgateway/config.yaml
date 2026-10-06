@@ -4,5 +4,7 @@ memory_mib: 4096
 vcpus: 2
 # The build disk holds the cluster and the images the lesson would pull.
 disk_gib: 16
+# scripts/labs saves a snapshot once this disk is current. Launch does not read this.
+snapshot: true
 title: Kubernetes Gateway API basics with kgateway
 description: Learn to configure Gateway and HTTPRoute resources to expose a service over HTTP.

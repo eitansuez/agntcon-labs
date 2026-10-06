@@ -2,6 +2,8 @@
 # 2 GB leaves room for both containers and the gateway.
 memory_mib: 2048
 vcpus: 2
+# scripts/labs saves a snapshot once this disk is current. Launch does not read this.
+snapshot: true
 title: LLM consumption cost management with agentgateway OSS
 description: Explore agentgateway features designed to help manage and control LLM costs.
 # The workshop allows 900 seconds.
