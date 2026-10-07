@@ -18,3 +18,4 @@ services:
   - name: Agentgateway UI
     port: 4000
     path: /ui
+badge_id: 17424c31-9585-4d52-98e0-f396576b17da

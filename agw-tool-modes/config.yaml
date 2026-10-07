@@ -13,3 +13,4 @@ time_limit: 15m
 # in the lesson reads AGENTGATEWAY_LICENSE_KEY.
 env:
   AGENTGATEWAY_LICENSE_KEY: $AGW_TRIAL_KEY
+badge_id: 4b2db957-7889-49d4-bfdc-7cba22822c58
