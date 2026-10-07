@@ -10,7 +10,7 @@ You will:
 
 The cluster is already running, and kgateway is already installed. The gateway and route manifests are in `data/` in this home directory.
 
-## Deploy httpbin
+## Deploy `httpbin`
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/istio/istio/refs/heads/master/samples/httpbin/httpbin.yaml
