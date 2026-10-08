@@ -1,0 +1,24 @@
+# Not measured. A k3d cluster plus agentgateway, and the substrate and
+# kagent charts the lesson installs. The Instruqt VM was an n1-standard-8.
+# memory_mib and vcpus do not rebuild the disk. disk_gib does.
+memory_mib: 8192
+vcpus: 4
+disk_gib: 16
+# Resume the guest after the k3d cluster has started. The gateway and the
+# dashboard route are already applied on the disk. Changing this flag does
+# not rebuild the disk.
+snapshot: true
+time_limit: 20m
+title: Run sandboxed agents with kagent and agent-substrate
+description: Install kagent with agent-substrate and deploy a SandboxAgent that runs as an actor.
+# $OPENAI_API_KEY is copied from the catalog process environment when the
+# session starts. The disk does not contain it.
+env:
+  OPENAI_API_KEY: $OPENAI_API_KEY
+# The catalog link opens a new tab. TLS ends at the catalog. The proxy dials
+# this port on 127.0.0.1 inside the guest, where the k3d load balancer
+# publishes the gateway.
+services:
+  - name: kagent Dashboard
+    port: 80
+    path: /
