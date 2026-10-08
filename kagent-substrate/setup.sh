@@ -89,7 +89,7 @@ chown -R root:root /root
 chmod 700 /root
 
 # The route names kagent-ui, which the lesson's helm install creates.
-# The gateway has no hostname: the catalog sends Host 80-<session>.runlabs.io,
+# The gateway has no hostname: the catalog sends Host <port>-<session>.<RUNLAB_HOSTNAME>,
 # and that name is not known while this disk is built.
 kubectl create namespace kagent
 kubectl apply -f /root/gtw.yaml
