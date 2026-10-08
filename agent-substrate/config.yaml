@@ -7,3 +7,4 @@ disk_gib: 20
 time_limit: 10m
 title: Agent substrate basics
 description: Install agent-substrate on a local kind cluster, deploy the counter demo, and watch an actor suspend and resume.
+badge_id: 40a16ac8-f359-433b-a27b-f721174bd8fe

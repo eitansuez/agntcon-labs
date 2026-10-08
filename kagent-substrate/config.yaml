@@ -22,3 +22,4 @@ services:
   - name: kagent Dashboard
     port: 80
     path: /
+badge_id: 7f3b7372-2102-4a8f-9090-633076ebf514
