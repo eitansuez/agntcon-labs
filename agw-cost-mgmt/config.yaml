@@ -1,13 +1,14 @@
+title: LLM consumption cost management with agentgateway OSS
+description: Explore agentgateway features designed to help manage and control LLM costs.
+author: Eitan Suez
+time_limit: 15m
+badge_id: 17424c31-9585-4d52-98e0-f396576b17da
 # Redis and the rate-limit server sit next to agentgateway.
 # 2 GB leaves room for both containers and the gateway.
 memory_mib: 2048
 vcpus: 2
 # scripts/labs saves a snapshot once this disk is current. Launch does not read this.
 snapshot: true
-title: LLM consumption cost management with agentgateway OSS
-description: Explore agentgateway features designed to help manage and control LLM costs.
-# The workshop allows 900 seconds.
-time_limit: 15m
 # The name on the left is the guest variable. $OPENAI_API_KEY is copied from
 # the catalog process environment when the session starts.
 env:
@@ -18,4 +19,3 @@ services:
   - name: Agentgateway UI
     port: 4000
     path: /ui
-badge_id: 17424c31-9585-4d52-98e0-f396576b17da

@@ -1,16 +1,17 @@
+title: Comparing MCP tool modes in agentgateway for cost control
+description: Learn about standard, search and code modes for MCP in agentgateway enterprise
+author: Eitan Suez
+time_limit: 15m
+badge_id: 4b2db957-7889-49d4-bfdc-7cba22822c58
 # A k3d cluster, plus the images the lesson starts. Same room as the kgateway lab.
 memory_mib: 4096
 vcpus: 2
 disk_gib: 16
 # scripts/labs saves a snapshot once this disk is current. Launch does not read this.
 snapshot: true
-title: Comparing MCP tool modes in agentgateway for cost control
-description: Learn about standard, search and code modes for MCP in agentgateway enterprise
 # The workshop allows 900 seconds.
-time_limit: 15m
 # The name on the left is the guest variable. $AGW_TRIAL_KEY is copied from
 # the catalog process environment when the session starts. The helm install
 # in the lesson reads AGENTGATEWAY_LICENSE_KEY.
 env:
   AGENTGATEWAY_LICENSE_KEY: $AGW_TRIAL_KEY
-badge_id: 4b2db957-7889-49d4-bfdc-7cba22822c58

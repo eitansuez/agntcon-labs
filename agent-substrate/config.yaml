@@ -1,10 +1,11 @@
+title: Agent substrate basics
+description: Install agent-substrate on a local kind cluster, deploy the counter demo, and watch an actor suspend and resume.
+author: Eitan Suez
+time_limit: 10m
+badge_id: 40a16ac8-f359-433b-a27b-f721174bd8fe
 # The 32 GB build used about 13 GB. 20 GB leaves room for the kind cluster
 # the lesson creates. The build VM uses this RAM and these vCPUs, and
 # Firecracker uses the same pair when the lab runs. disk_gib rebuilds the disk.
 memory_mib: 8192
 vcpus: 4
 disk_gib: 20
-time_limit: 10m
-title: Agent substrate basics
-description: Install agent-substrate on a local kind cluster, deploy the counter demo, and watch an actor suspend and resume.
-badge_id: 40a16ac8-f359-433b-a27b-f721174bd8fe

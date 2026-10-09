@@ -1,3 +1,8 @@
+title: Run sandboxed agents with kagent and agent-substrate
+description: Install kagent with agent-substrate and deploy a SandboxAgent that runs as an actor.
+author: Eitan Suez
+time_limit: 20m
+badge_id: 7f3b7372-2102-4a8f-9090-633076ebf514
 # Not measured. A k3d cluster plus agentgateway, and the substrate and
 # kagent charts the lesson installs. The Instruqt VM was an n1-standard-8.
 # memory_mib and vcpus do not rebuild the disk. disk_gib does.
@@ -8,9 +13,6 @@ disk_gib: 16
 # dashboard route are already applied on the disk. Changing this flag does
 # not rebuild the disk.
 snapshot: true
-time_limit: 20m
-title: Run sandboxed agents with kagent and agent-substrate
-description: Install kagent with agent-substrate and deploy a SandboxAgent that runs as an actor.
 # $OPENAI_API_KEY is copied from the catalog process environment when the
 # session starts. The disk does not contain it.
 env:
@@ -22,4 +24,3 @@ services:
   - name: kagent Dashboard
     port: 80
     path: /
-badge_id: 7f3b7372-2102-4a8f-9090-633076ebf514

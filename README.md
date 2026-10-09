@@ -10,7 +10,7 @@ The platform stores the disk. Changing `setup.sh`, `data/`, or `disk_gib` builds
 
 Every field can be omitted.
 
-`title` and `description` are the text on the catalog page.
+`title` and `description` are the text on the catalog page. `author` is who wrote the lab.
 
 `memory_mib` is the guest RAM. The default is 1024. `vcpus` defaults to 2.
 
