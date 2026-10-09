@@ -3,6 +3,10 @@ description: Explore agentgateway features designed to help manage and control L
 author: Eitan Suez
 time_limit: 15m
 badge_id: 17424c31-9585-4d52-98e0-f396576b17da
+tags:
+- llm
+- agentgateway
+- cost
 # Redis and the rate-limit server sit next to agentgateway.
 # 2 GB leaves room for both containers and the gateway.
 memory_mib: 2048

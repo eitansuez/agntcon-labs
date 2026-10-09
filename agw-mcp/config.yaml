@@ -3,3 +3,6 @@ description: Learn to federate multiple MCP servers behind agentgateway.
 author: Eitan Suez
 time_limit: 15m
 badge_id: 07c1bc0c-900a-4484-ae13-afb387037cf7
+tags:
+- agentgateway
+- mcp

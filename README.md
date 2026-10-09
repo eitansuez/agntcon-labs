@@ -4,13 +4,15 @@ Lessons for the runlab platform. One directory is one lab, and the directory nam
 
 A lab has `index.md`, the lesson the page renders. `config.yaml` is optional. `setup.sh` is optional. The disk build runs it once, as root, after copying `data/` to `/root/data`. The script can install a service that runs on later boots.
 
-The platform stores the disk. Changing `setup.sh`, `data/`, or `disk_gib` builds a new one. The lesson, the title, the description, `memory_mib`, `vcpus`, `time_limit`, `env`, `services`, and `snapshot` do not.
+The platform stores the disk. Changing `setup.sh`, `data/`, or `disk_gib` builds a new one. The lesson, the title, the description, the tags, `memory_mib`, `vcpus`, `time_limit`, `env`, `services`, and `snapshot` do not.
 
 ## config.yaml
 
 Every field can be omitted.
 
 `title` and `description` are the text on the catalog page. `author` is who wrote the lab.
+
+`tags` is a list of categories. A project name, such as agentgateway, and a topic, such as kubernetes or ai, are both tags. The catalog trims each name, lowercases it, and keeps the first of any repeat. One name can be written as `tags: ai`.
 
 `memory_mib` is the guest RAM. The default is 1024. `vcpus` defaults to 2.
 
@@ -32,6 +34,10 @@ time_limit: 15m
 snapshot: true
 title: Example
 description: What the catalog shows.
+tags:
+  - agentgateway
+  - kubernetes
+  - ai
 env:
   LAB_TRACK: $LAB_TRACK
 services:

@@ -3,6 +3,10 @@ description: Learn to apply filters to LLM requests and responses to reject or m
 author: Eitan Suez
 time_limit: 15m
 badge_id: 4a5938d4-bb31-4f7f-ad70-1101b6badfae
+tags:
+- agentgateway
+- guardrails
+- llm
 # The name on the left is the guest variable. $OPENAI_API_KEY is copied from
 # the catalog process environment when the session starts.
 env:

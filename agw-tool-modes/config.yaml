@@ -3,6 +3,10 @@ description: Learn about standard, search and code modes for MCP in agentgateway
 author: Eitan Suez
 time_limit: 15m
 badge_id: 4b2db957-7889-49d4-bfdc-7cba22822c58
+tags:
+- agentgateway
+- mcp
+- kubernetes
 # A k3d cluster, plus the images the lesson starts. Same room as the kgateway lab.
 memory_mib: 4096
 vcpus: 2

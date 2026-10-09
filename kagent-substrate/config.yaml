@@ -3,6 +3,10 @@ description: Install kagent with agent-substrate and deploy a SandboxAgent that 
 author: Eitan Suez
 time_limit: 20m
 badge_id: 7f3b7372-2102-4a8f-9090-633076ebf514
+tags:
+- kagent
+- agent-substrate
+- kubernetes
 # Not measured. A k3d cluster plus agentgateway, and the substrate and
 # kagent charts the lesson installs. The Instruqt VM was an n1-standard-8.
 # memory_mib and vcpus do not rebuild the disk. disk_gib does.
