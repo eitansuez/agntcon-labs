@@ -4,7 +4,7 @@ Lessons for the runlab platform. One directory is one lab, and the directory nam
 
 A lab has `index.md`, the lesson the page renders. `config.yaml` is optional. `setup.sh` is optional. The disk build runs it once, as root, after copying `data/` to `/root/data`. The script can install a service that runs on later boots.
 
-The platform stores the disk. Changing `setup.sh`, `data/`, or `disk_gib` builds a new one. The lesson, the title, the description, the tags, `memory_mib`, `vcpus`, `time_limit`, `env`, `services`, and `snapshot` do not.
+The platform stores the disk. Changing `setup.sh`, `data/`, or `disk_gib` builds a new one. The lesson, the title, the description, the tags, `memory_mib`, `vcpus`, `time_limit`, `env`, `services`, and `snapshot` do not. A lab that uses another disk, including `default`, is not built. It uses the named disk.
 
 ## config.yaml
 
@@ -19,6 +19,8 @@ Every field can be omitted.
 `time_limit` is how long a session may run, written as `10m` or `600s`. The default is 10 minutes. The microVM is reclaimed when the limit hits, and when the learner completes the lab.
 
 `disk_gib` is the size of the built disk. The default is 8. Launch does not read it.
+
+`disk_name` names the disk this lab boots, such as `disk_name: default`. A lab with no `setup.sh` and no `data/` uses `default` when the line is omitted. A lab that supplies `setup.sh` or `data/` uses its own disk unless `disk_name` says otherwise. `default` is reserved for the disk built with no lab setup.
 
 `snapshot: true` asks the labs boot job to save a memory snapshot once the disk is current. Launch does not read it. A later launch resumes that snapshot when it still matches the disk.
 
