@@ -11,5 +11,6 @@ memory_mib: 4096
 vcpus: 2
 # The build disk holds the cluster and the images the lesson would pull.
 disk_gib: 16
-# scripts/labs saves a snapshot once this disk is current. Launch does not read this.
-snapshot: true
+# The story waits until kgateway is up, and the build saves that machine.
+snapshots:
+  - installed

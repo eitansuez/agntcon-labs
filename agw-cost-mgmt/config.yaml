@@ -11,8 +11,10 @@ tags:
 # 2 GB leaves room for both containers and the gateway.
 memory_mib: 2048
 vcpus: 2
-# scripts/labs saves a snapshot once this disk is current. Launch does not read this.
-snapshot: true
+# The story marks the booted machine, and the build saves it.
+# The learner starts agentgateway. Redis starts before login.
+snapshots:
+  - stack
 # The name on the left is the guest variable. $OPENAI_API_KEY is copied from
 # the catalog process environment when the session starts.
 env:

@@ -13,10 +13,11 @@ tags:
 memory_mib: 8192
 vcpus: 4
 disk_gib: 16
-# Resume the guest after the k3d cluster has started. The gateway and the
-# dashboard route are already applied on the disk. Changing this flag does
-# not rebuild the disk.
-snapshot: true
+# The story waits until the dashboard answers, and the build saves that
+# machine. The gateway and the dashboard route are already on the disk.
+# Changing the story does not rebuild the disk. It takes this save again.
+snapshots:
+  - dashboard
 # $OPENAI_API_KEY is copied from the catalog process environment when the
 # session starts. The disk does not contain it.
 env:
