@@ -14,7 +14,7 @@ vcpus: 2
 # The story marks the booted machine, and the build saves it.
 # The learner starts agentgateway. Redis starts before login.
 snapshots:
-  - stack
+- stack
 # The name on the left is the guest variable. $OPENAI_API_KEY is copied from
 # the catalog process environment when the session starts.
 env:
@@ -22,6 +22,7 @@ env:
 # The bar above the lesson. The link opens on its own hostname so the
 # guest still serves /ui at the root of this port.
 services:
-  - name: Agentgateway UI
-    port: 4000
-    path: /ui
+- name: Agentgateway UI
+  port: 4000
+  path: /ui
+  header: false

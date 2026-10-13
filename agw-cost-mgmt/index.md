@@ -67,7 +67,7 @@ Agentgateway is designed to proxy agentic services, such as MCP servers and mode
 
 ### The UI
 
-Explore the UI: click Agentgateway UI in the bar at the top. It opens in a new browser tab.
+[Explore the UI](service:agentgateway-ui). It opens in a new browser tab.
 
 - If presented with a dialog, click Continue.
 - LLMs, MCP Servers or traditional services can be configured directly from the UI, but in this lab you will directly modify the configuration file.
@@ -134,7 +134,7 @@ Token consumption is captured in the logs!
 
 ### Review the UI
 
-Switch to the agentgateway UI, and **click the "Reload" icon in the top-right corner of the page**.
+[Switch to the agentgateway UI](service:agentgateway-ui), and **click the "Reload" icon in the top-right corner of the page**.
 
 - Under "Models", note that the OpenAI model is configured.
 - Under "Logs", you should see the recent calls, and the model and provider information.
@@ -179,7 +179,7 @@ Update agentgateway with the new configuration:
 cp config-costs.yaml ~/.config/agentgateway/config.yaml
 ```
 
-The same process can be alternatively performed directly from the UI's "Costs" page, by clicking on "Refresh base costs."
+The same process can be alternatively performed directly [from the UI](service:agentgateway-ui)'s "Costs" page, by clicking on "Refresh base costs."
 
 > [!IMPORTANT]
 > Stop agentgateway with `Ctrl+C`.
