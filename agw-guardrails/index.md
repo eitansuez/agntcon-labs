@@ -62,7 +62,7 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 The request should be rejected with the message `The request was rejected due to inappropriate content`.
 
-- [Open the agentgateway UI](service:agentgateway-ui) and go to "Logs".
+- Open the [agentgateway UI's "Logs" page](service:agentgateway-ui/llm/logs).
 - Expand the newest entry to see how the gateway recorded the rejected request, and compare it with the earlier successful call, then come back to this lab page.
 
 ## Mask PII in responses
