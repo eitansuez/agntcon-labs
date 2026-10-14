@@ -14,6 +14,7 @@ env:
 # The bar above the lesson. The link opens on its own hostname so the
 # guest still serves /ui at the root of this port.
 services:
-  - name: Agentgateway UI
-    port: 4000
-    path: /ui
+- name: Agentgateway UI
+  port: 4000
+  path: /ui
+  header: false

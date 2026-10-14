@@ -45,6 +45,9 @@ Add a guardrail, start with a request guardrail on email addresses, where a dete
 bat config-request-guardrail.yaml
 ```
 
+[Open the agentgateway UI](service:agentgateway-ui) and go to "Logs".
+Expand the newest entry to see how the gateway recorded the rejected request, and compare it with the earlier successful call, then come back to this lab page.
+
 > [!IMPORTANT]
 > Stop the running instance of agentgateway with a `Ctrl+C`.
 
