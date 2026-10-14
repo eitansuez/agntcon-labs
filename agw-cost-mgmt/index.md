@@ -130,13 +130,13 @@ Token consumption is captured in the logs!
 
 [Switch to the agentgateway UI](service:agentgateway-ui), and **click the "Refresh" icon in the top-right corner of the page**.
 
-- Under "Models", note that the OpenAI model is configured.
-- Under "Logs", you should see the recent calls, and the model and provider information.
+- Under ["Models"](service:agentgateway-ui/llm/models), note that the OpenAI model is configured.
+- Under ["Logs"](service:agentgateway-ui/llm/logs), you should see the recent calls, and the model and provider information.
 - Expand the top log entry, and note the timing and token usage information is captured as well.
 
 Using the selectors in the top panel, try to filter the list of log entries by model.
 
-Under "Analytics" try to group LLM traffic by model.
+Under ["Analytics"](service:agentgateway-ui/llm/analytics) try to group LLM traffic by model.
 
 > [!IMPORTANT]
 > Come back to this lab page.
@@ -173,7 +173,7 @@ Update agentgateway with the new configuration:
 cp config-costs.yaml ~/.config/agentgateway/config.yaml
 ```
 
-The same process can be alternatively performed directly [from the UI](service:agentgateway-ui)'s "Costs" page, by clicking on "Refresh base costs."
+The same process can be alternatively performed directly from the UI's ["Costs" page](service:agentgateway-ui/llm/costs), by clicking on "Refresh base costs."
 
 > [!IMPORTANT]
 > [Stop agentgateway](key:Ctrl+C){panel="gateway"}
@@ -219,7 +219,7 @@ curl -s http://localhost:4000/v1/chat/completions \
 > [!IMPORTANT]
 > Each time you switch to the agentgateway UI after modifying the configuration, **click the "Reload" icon in the top-right corner of the page**.
 
-Visit the "Logs" page again, and note that the log entries now report cost information in addition to token usage.
+Visit the ["Logs" page](service:agentgateway-ui/llm/logs) again, and note that the log entries now report cost information in addition to token usage.
 
 > [!IMPORTANT]
 > Come back to this lab page.
@@ -292,8 +292,8 @@ curl -s http://localhost:4000/v1/chat/completions \
    }' | jq
 ```
 
-Navigate to the "Logs" page and note that the latest log entries have a group attribution.
-Visit the "Analytics" page and under "Group by", select "Group" and see the token or cost breakdown by group.
+Navigate to the ["Logs" page](service:agentgateway-ui/llm/logs) and note that the latest log entries have a group attribution.
+Visit the ["Analytics" page](service:agentgateway-ui/llm/analytics) and under "Group by", select "Group" and see the token or cost breakdown by group.
 
 > [!IMPORTANT]
 > Come back to this lab page.
