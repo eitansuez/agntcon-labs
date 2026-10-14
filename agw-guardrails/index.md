@@ -2,31 +2,26 @@ Agentgateway provides a number of strategies to [moderate and safeguard LLM cont
 
 In this lab you will explore agentgateway's built-in filters, where a match against sensitive content can either be masked, or where the request can be rejected outright.
 
-Configure a two-panel layout for the terminal:
-
-```shell
-zellij --layout ~/two-pane-layout.kdl
-```
-
-The agentgateway binary is installed.
-
-Click on the top panel, and run agentgateway:
-
 Review the following configuration that proxies calls to OpenAI models:
 
 ```shell
 bat config-llm.yaml
 ```
 
-Start agentgateway with the above configuration:
+The agentgateway binary is installed.
 
-```shell
+> [!IMPORTANT]
+> [Configure a two-panel layout](zellij:two-pane) for the terminal.
+
+Start agentgateway:
+
+```shell panel="gateway"
 agentgateway -f config-llm.yaml
 ```
 
-Click on the bottom panel, and send a test request and observe the response:
+Send a test request and observe the response:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -39,24 +34,24 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Filters can be specified using regex patterns, but agentgateway also provides [built-in patterns](https://agentgateway.dev/docs/standalone/latest/llm/prompt-guards/regex/#built-in-patterns) for email addresses, phone numbers, social security numbers, and credit card numbers.
 
+> [!IMPORTANT]
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+
 Add a guardrail, start with a request guardrail on email addresses, where a detection results in the request being rejected:
 
-```shell
+```shell panel="gateway"
 bat config-request-guardrail.yaml
 ```
 
-> [!IMPORTANT]
-> Stop the running instance of agentgateway with a `Ctrl+C`.
-
 Start agentgateway with the new configuration:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-request-guardrail.yaml
 ```
 
-Test the new configuration in the other shell:
+Test the new configuration:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -74,22 +69,22 @@ The request should be rejected with the message `The request was rejected due to
 
 Review the following configuration, which filters for phone numbers and masks them in responses, this time using a **regex pattern instead of a built-in**.
 
-```shell
+> [!IMPORTANT]
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+
+```shell panel="gateway"
 bat config-response-filter.yaml
 ```
 
-> [!IMPORTANT]
-> Stop the running instance of agentgateway with a `Ctrl+C`.
-
 Start agentgateway with the new configuration:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-response-filter.yaml
 ```
 
-Test the new configuration in the other shell:
+Test the new configuration:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
@@ -102,21 +97,24 @@ The telephone numbers cited in the response should all have been replace with th
 
 ## Try the phoneNumber builtin
 
+> [!IMPORTANT]
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+
 Review a configuration that substitutes the above phone pattern with the `phoneNumber` builtin, which goes beyond format matching and also checks validity:
 
-```shell
+```shell panel="gateway"
 bat config-response-builtin.yaml
 ```
 
-Press `Ctrl+C` to stop agentgateway and restart it with the updated configuration:
+Restart the gateway with the updated configuration:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-response-builtin.yaml
 ```
 
-Test the updated configuration in the other shell:
+Test the updated configuration:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
