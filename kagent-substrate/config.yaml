@@ -17,7 +17,7 @@ disk_gib: 16
 # machine. The gateway and the dashboard route are already on the disk.
 # Changing the story does not rebuild the disk. It takes this save again.
 snapshots:
-  - dashboard
+- dashboard
 # $OPENAI_API_KEY is copied from the catalog process environment when the
 # session starts. The disk does not contain it.
 env:
@@ -26,6 +26,7 @@ env:
 # this port on 127.0.0.1 inside the guest, where the k3d load balancer
 # publishes the gateway.
 services:
-  - name: kagent Dashboard
-    port: 80
-    path: /
+- name: kagent Dashboard
+  port: 80
+  path: /
+  header: false

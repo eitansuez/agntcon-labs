@@ -84,7 +84,7 @@ Note the configuration values that enable integration with agent-substrate and t
 Other configuration fields set the default number of replicas for WorkerPools and to use gVisor for the sandbox configuration.
 
 > [!IMPORTANT]
-> Open the kagent Dashboard link above the lesson.
+> Open the [kagent Dashboard](service:kagent-dashboard).
 > Ignore the stock instructions from the console about "accessing the UI."
 > On the first page you encounter in the UI, click "skip wizard."
 
@@ -128,7 +128,7 @@ Confirm that:
 
 ## Inspect the state of agent substrate
 
-Open the kagent Dashboard link above the lesson.
+Open the [kagent Dashboard](service:kagent-dashboard).
 
 Click on the "View" menu at the top of the page, then select "Substrate."
 

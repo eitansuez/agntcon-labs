@@ -134,7 +134,7 @@ Token consumption is captured in the logs!
 
 ### Review the UI
 
-[Switch to the agentgateway UI](service:agentgateway-ui), and **click the "Reload" icon in the top-right corner of the page**.
+[Switch to the agentgateway UI](service:agentgateway-ui), and **click the "Refresh" icon in the top-right corner of the page**.
 
 - Under "Models", note that the OpenAI model is configured.
 - Under "Logs", you should see the recent calls, and the model and provider information.
