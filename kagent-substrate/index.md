@@ -130,22 +130,23 @@ Confirm that:
 
 Open the [kagent Dashboard](service:kagent-dashboard).
 
-Click on the "View" menu at the top of the page, then select "Substrate."
-
-Review the substrate dashboard. It lists:
+Review the [Substrate dashboard](service:kagent-dashboard/substrate) (under `View->Substrate`).
+It lists:
 
 - Worker pools: you should see the `kagent-default` worker pool.
 - Actor templates: an actor template is created per sandbox agent; there should be one present for `hello-substrate`.
 - Actors: a gold snapshot for the actor is created when the actor template was reconciled. The actor for `hello-substrate` is lazily created upon initial interaction with the agent.
 - Worker: since the worker pool was configured with a single replica, only one worker is listed.
 
+Keep the page open.
+
 ## Interact with the agent
 
-From the kagent dashboard home screen, you should see the `hello-substrate` agent listed as a card.
+The `hello-substrate` agent listed as a card on the kagent home page.
 
-Click on the agent to begin a chat session with it.
+Begin a [chat session](service:kagent-dashboard/agents/kagent/hello-substrate/chat) with the `hello-substrate` agent.
 
-Each time you send the agent a message, the agent substrate dashboard will show the `hello-substrate` actor's status change from SUSPENDED to RUNNING.
+Each time you send the agent a message, the substrate dashboard will show the `hello-substrate` actor's status change from SUSPENDED to RUNNING.
 As soon as the request is handled, kagent puts the actor back into SUSPENDED state.
 
 The best way to see this in action is to open the Substrate dashboard in a separate tab and switch to that tab immediately each time after sending the agent a message.
