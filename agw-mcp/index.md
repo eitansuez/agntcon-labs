@@ -112,7 +112,7 @@ A more powerful authorization policy can use identity information to expose a di
 
 Restart agentgateway with the updated configuration:
 
-```shell panel="agentgateway"
+```shell panel="gateway"
 agentgateway -f config-filtered.yaml
 ```
 
