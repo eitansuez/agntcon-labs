@@ -128,23 +128,19 @@ kubectl apply -f \
   https://github.com/istio/istio/raw/refs/heads/master/samples/curl/curl.yaml
 ```
 
-Configure two panes so you can see the actor go from SUSPENDED state to RUNNING state when called.
+[Configure two panes](zellij:two-pane), so you can see the actor go from SUSPENDED state to RUNNING state when called.
 
-```shell
-zellij --layout ~/two-pane-layout.kdl
-```
+Watch the actor:
 
-In the top pane, watch the actor:
-
-```shell
+```shell panel="gateway"
 watch -n 1 kubectl ate get actor my-counter-1 --atespace ate-demo-counter
 ```
 
 Note its SUSPENDED state.
 
-In the bottom pane, call the `atenet-router` service, targeting the "counter" actor:
+Next, call the `atenet-router` service, targeting the "counter" actor:
 
-```shell
+```shell panel="client"
 kubectl exec deploy/curl -- \
   curl -s -X POST -H "ate-target-actor: ate-demo-counter/my-counter-1" \
   http://atenet-router.ate-system.svc.cluster.local
@@ -156,13 +152,13 @@ In the response, the counter value is 1.
 
 Call the API server to suspend the actor:
 
-```shell
+```shell panel="client"
 kubectl ate suspend actor my-counter-1 --atespace ate-demo-counter
 ```
 
 Make another call:
 
-```shell
+```shell panel="client"
 kubectl exec deploy/curl -- \
   curl -s -X POST -H "ate-target-actor: ate-demo-counter/my-counter-1" \
   http://atenet-router.ate-system.svc.cluster.local

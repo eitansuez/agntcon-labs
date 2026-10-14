@@ -1,7 +1,0 @@
-layout {
-  pane size="40%" {
-    focus true
-  }
-  pane size="60%" {
-  }
-}

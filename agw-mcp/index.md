@@ -4,14 +4,6 @@ In this lab, you will explore a feature known as [Virtual MCP](https://agentgate
 
 ## Proxy an MCP server
 
-Configure a two-panel layout for the terminal:
-
-```shell
-zellij --layout ~/two-pane-layout.kdl
-```
-
-Click on the top panel to give it focus.
-
 Run the ["Everything" MCP server](https://github.com/modelcontextprotocol/servers/blob/main/src/everything/README.md) locally on port 3001:
 
 ```shell
@@ -24,26 +16,27 @@ Review the agentgateway proxy configuration:
 bat config-mcp.yaml
 ```
 
+> [!IMPORTANT]
+> [Configure a two-panel layout](zellij:two-pane) for the terminal.
+
 The above configuration format is a short-hand that agentgateway offers for proxying MCP servers: any MCP servers listed under `targets` are automatically proxied on port 3000 by default.
 
 Start agentgateway:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-mcp.yaml
 ```
 
-Focus on the bottom panel.
-
 **List the tools** hosted by the MCP server by calling the agentgateway proxy that listens on port 3000:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/list | jq '.tools[].name'
 ```
 
 Call the `echo` tool:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/call \
   --tool-name echo --tool-arg message="hello world" | jq
@@ -51,25 +44,25 @@ mcp-inspector --cli http://localhost:3000/mcp \
 
 ## Federate multiple MCP servers
 
+> [!IMPORTANT]
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+
 Review a proxy configuration that federates two MCP servers (we add a [second MCP server
 ](https://search.solo.io/mcp)):
 
-```shell
+```shell panel="gateway"
 bat config-virtual.yaml
 ```
 
-> [!IMPORTANT]
-> Terminate agentgateway with a `Ctrl+C`.
-
 Restart agentgateway with the updated configuration:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-virtual.yaml
 ```
 
-From the bottom panel, list the tools again:
+List the tools again:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/list | jq '.tools[].name'
 ```
@@ -78,24 +71,24 @@ Note how the response now aggregates the tools across both MCP servers, each pre
 
 ## Turn off prefixing
 
+> [!IMPORTANT]
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+
 Next, we tweak to the configuration and choose to turn off prefixing of the tool names:
 
-```shell
+```shell panel="gateway"
 bat config-noprefix.yaml
 ```
 
-> [!IMPORTANT]
-> Stop agentgateway again (`Ctrl+C`).
-
 Restart agentgateway with the updated configuration:
 
-```shell
+```shell panel="gateway"
 agentgateway -f config-noprefix.yaml
 ```
 
 List the tools again:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/list | jq '.tools[].name'
 ```
@@ -106,33 +99,33 @@ Note how the tool names no longer carry a prefix.
 
 Through CEL expressions we can control which tools to expose.
 
-The following configuration exposes only `echo` and `search`:
+> [!IMPORTANT]
+> Stop agentgateway (`Ctrl+C`).
 
-```shell
+Review the following configuration, which exposes only `echo` and `search`:
+
+```shell panel="gateway"
 bat config-filtered.yaml
 ```
 
 A more powerful authorization policy can use identity information to expose a different set of tools to different categories of users, for example, by using a CEL expression that evaluates elements of the user's JWT token.
 
-> [!IMPORTANT]
-> Stop agentgateway again (`Ctrl+C`).
-
 Restart agentgateway with the updated configuration:
 
-```shell
+```shell panel="agentgateway"
 agentgateway -f config-filtered.yaml
 ```
 
 List the tools again:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/list | jq '.tools[].name'
 ```
 
 A call to `echo` continues to function:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/call \
   --tool-name echo --tool-arg message="hello world" | jq
@@ -140,7 +133,7 @@ mcp-inspector --cli http://localhost:3000/mcp \
 
 However a call to any of the filtered tools will fail:
 
-```shell
+```shell panel="client"
 mcp-inspector --cli http://localhost:3000/mcp \
   --transport http --method tools/call \
   --tool-name get-sum --tool-arg a=3 --tool-arg b=4 2>&1 | jq .

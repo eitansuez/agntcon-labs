@@ -1,0 +1,7 @@
+layout {
+  pane name="gateway" size="40%" {
+    focus true
+  }
+  pane name="client" size="60%" {
+  }
+}

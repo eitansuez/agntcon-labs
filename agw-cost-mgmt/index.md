@@ -10,39 +10,33 @@ You will:
 
 ## Setup
 
-Configure a two-panel layout for the terminal:
-
-```shell
-zellij --layout ~/two-pane-layout.kdl
-```
-
-**Put the focus on the top panel** (click on it).
+[Configure a two-panel layout](zellij:two-pane) for the terminal.
 
 Verify that the agentgateway binary is installed by running it with the `--version` flag:
 
-```shell
+```shell panel="gateway"
 agentgateway --version
 ```
 
 The simplest way to start with agentgateway is to just run it:
 
-```shell
+```shell panel="gateway"
 agentgateway
 ```
 
 Inspect the console logs.  Here are some relevant pieces of information:
 
 ```console
-state_manager   Watching config file: ~/.config/agentgateway/config.yaml
+state_manager   Watching .. ~/.config/agentgateway/config.yaml
 app     serving UI at http://localhost:4000/ui
 proxy::gateway  started bind    bind="bind/4000"
 ```
 
 Agentgateway detects that no configuration file was supplied, and writes a default configuration to the folder `~/.config/agentgateway`.
 
-**Put the focus on the bottom panel**, and print a directory listing to review the files contained therein:
+Print a directory listing to review the files contained therein:
 
-```shell
+```shell panel="client"
 ls -1 ~/.config/agentgateway
 ```
 
@@ -53,7 +47,7 @@ ls -1 ~/.config/agentgateway
 
 Display the contents of `config.yaml`:
 
-```shell
+```shell panel="client"
 bat ~/.config/agentgateway/config.yaml
 ```
 
@@ -82,7 +76,7 @@ Agentgateway supports a [long list of LLM providers](https://agentgateway.dev/do
 
 Inspect the following configuration:
 
-```shell
+```shell panel="client"
 bat config-llm.yaml
 ```
 
@@ -96,13 +90,13 @@ The client specifies the model they wish to use and the gateway will forward the
 
 Make the new configuration active:
 
-```shell
+```shell panel="client"
 cp config-llm.yaml ~/.config/agentgateway/config.yaml
 ```
 
 Make a call to the gateway listening on port 4000, specifying `gpt-5-nano` for the model:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --data '{
@@ -116,7 +110,7 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Try a different model, say, `gpt-5-mini`:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --data '{
@@ -153,7 +147,7 @@ Agentgateway provides a convenient command line interface, `agctl`.
 
 Verify that `agctl` is installed:
 
-```shell
+```shell panel="client"
 agctl --help
 ```
 
@@ -163,30 +157,30 @@ The `agctl` CLI provides a subcommand to import a cost catalog from a variety of
 
 Pull down costs from [models.dev](https://models.dev/) into the file `cost-catalog.json`:
 
-```shell
+```shell panel="client"
 agctl costs import --out ~/.config/agentgateway/cost-catalog.json
 ```
 
 Review the following updated configuration file, which adds the `modelCatalog` configuration pointing to the file just produced:
 
-```shell
+```shell panel="client"
 bat config-costs.yaml
 ```
 
 Update agentgateway with the new configuration:
 
-```shell
+```shell panel="client"
 cp config-costs.yaml ~/.config/agentgateway/config.yaml
 ```
 
 The same process can be alternatively performed directly [from the UI](service:agentgateway-ui)'s "Costs" page, by clicking on "Refresh base costs."
 
 > [!IMPORTANT]
-> Stop agentgateway with `Ctrl+C`.
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
 
 Restart agentgateway to highlight the cost information in the logs:
 
-```shell
+```shell panel="gateway"
 agentgateway | grep --line-buffered --color=always -E 'agw.ai.usage.cost.total=[0-9.]+|$'
 ```
 
@@ -194,7 +188,7 @@ agentgateway | grep --line-buffered --color=always -E 'agw.ai.usage.cost.total=[
 
 Send a couple of new requests to OpenAI:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --data '{
@@ -210,7 +204,7 @@ The log entry contains cost information!
 
 And:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --data '{
@@ -242,19 +236,19 @@ The API Key is supplied by default in the request Authorization header, and a re
 
 Review the following Virtual API key configuration, under `llm.policies`, which configure an API key for two teams: Engineering and Marketing.
 
-```shell
+```shell panel="client"
 bat config-apikeys.yaml
 ```
 
 Apply the updated configuration:
 
-```shell
+```shell panel="client"
 cp config-apikeys.yaml ~/.config/agentgateway/config.yaml
 ```
 
 Send a request without an API Key:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --data '{
@@ -270,7 +264,7 @@ That request produces an error: `api key authentication failure.`
 
 Send a request using the Engineering team's API key:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --header "Authorization: Bearer agw_sk_mZPNQa88c7xI5FL1ALauytmqXWdafhUs" \
@@ -285,7 +279,7 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Send another request, this time using the Marketing team's API key:
 
-```shell
+```shell panel="client"
 curl -s http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --header "Authorization: Bearer agw_sk_6KNTk5qnp4xstJnusgfcsUkTTCdI0cih" \
@@ -310,7 +304,7 @@ With group attribution in place, the natural next step is to configure limits pe
 
 Review the following rate limit server configuration (configured with artificially low limits to demonstrate rate limiting) that limits the engineering team to 200 tokens per minute and marketing to 50 tokens per minute:
 
-```shell
+```shell panel="client"
 bat ratelimit-config/config.yaml
 ```
 
@@ -318,19 +312,19 @@ The rate limit server and its backing redis server are already running in Docker
 
 Review the following agentgateway configuration adds a `remoteRateLimit` section that maps each request's group attribution to the rate limit server's bucket key.
 
-```shell
+```shell panel="client"
 bat config-ratelimit.yaml
 ```
 
 Update agentgateway's configuration:
 
-```shell
+```shell panel="client"
 cp config-ratelimit.yaml ~/.config/agentgateway/config.yaml
 ```
 
 Send a few requests using the Marketing team's API key and note the HTTP response code, after a couple of requests starts returning 429 (Rate limited) responses:
 
-```shell
+```shell panel="client"
 for i in {1..5}; do
    curl -o /dev/null -s -w "%{http_code}\n" http://localhost:4000/v1/chat/completions \
       --header "Content-Type: application/json" \
@@ -347,7 +341,7 @@ done
 
 The engineering team's budget is distinct, and so has not been exhausted:
 
-```shell
+```shell panel="client"
 curl -o /dev/null -s -w "%{http_code}\n" http://localhost:4000/v1/chat/completions \
    --header "Content-Type: application/json" \
    --header "Authorization: Bearer agw_sk_mZPNQa88c7xI5FL1ALauytmqXWdafhUs" \
