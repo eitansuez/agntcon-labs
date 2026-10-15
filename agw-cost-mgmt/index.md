@@ -47,9 +47,7 @@ ls -1 ~/.config/agentgateway
 
 Display the contents of `config.yaml`:
 
-```shell panel="client"
-bat ~/.config/agentgateway/config.yaml
-```
+[View config.yaml](bat:~/.config/agentgateway/config.yaml)
 
 By default, you get a starting configuration that specifies:
 
