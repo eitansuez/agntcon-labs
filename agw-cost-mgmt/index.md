@@ -136,7 +136,7 @@ Token consumption is captured in the logs!
 
 Using the selectors in the top panel, try to filter the list of log entries by model.
 
-Under ["Analytics"](service:agentgateway-ui/llm/analytics) try to group LLM traffic by model.
+Under "Analytics", [group LLM traffic by model](service:agentgateway-ui/llm/analytics?groupBy=model).
 
 > [!IMPORTANT]
 > Come back to this lab page.
@@ -293,7 +293,7 @@ curl -s http://localhost:4000/v1/chat/completions \
 ```
 
 Navigate to the ["Logs" page](service:agentgateway-ui/llm/logs) and note that the latest log entries have a group attribution.
-Visit the ["Analytics" page](service:agentgateway-ui/llm/analytics) and under "Group by", select "Group" and see the token or cost breakdown by group.
+Visit the "Analytics" page to see the [token](service:agentgateway-ui/llm/analytics?groupBy=group) or [cost](service:agentgateway-ui/llm/analytics?groupBy=group&metric=cost) breakdown by group.
 
 > [!IMPORTANT]
 > Come back to this lab page.
