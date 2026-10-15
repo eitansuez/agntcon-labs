@@ -100,9 +100,7 @@ The kagent CRD `SandboxAgent` designates an agent that is to be run on agent-sub
 
 Inspect the specification for a simple declarative SandboxAgent:
 
-```shell
-bat sandbox-agent.yaml
-```
+[View sandbox-agent.yaml](bat:sandbox-agent.yaml)
 
 The `workerPoolRef` instructs kagent to map the agent onto the WorkerPool `kagent-default`.
 

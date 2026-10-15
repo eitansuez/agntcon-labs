@@ -12,9 +12,7 @@ npx --yes @modelcontextprotocol/server-everything streamableHttp &
 
 Review the agentgateway proxy configuration:
 
-```shell
-bat config-mcp.yaml
-```
+[View config-mcp.yaml](bat:config-mcp.yaml)
 
 > [!IMPORTANT]
 > [Configure a two-panel layout](zellij:two-pane) for the terminal.
@@ -50,9 +48,7 @@ mcp-inspector --cli http://localhost:3000/mcp \
 Review a proxy configuration that federates two MCP servers (we add a [second MCP server
 ](https://search.solo.io/mcp)):
 
-```shell panel="gateway"
-bat config-virtual.yaml
-```
+[View config-virtual.yaml](bat:gateway:config-virtual.yaml)
 
 Restart agentgateway with the updated configuration:
 
@@ -76,9 +72,7 @@ Note how the response now aggregates the tools across both MCP servers, each pre
 
 Next, we tweak to the configuration and choose to turn off prefixing of the tool names:
 
-```shell panel="gateway"
-bat config-noprefix.yaml
-```
+[View config-noprefix.yaml](bat:gateway:config-noprefix.yaml)
 
 Restart agentgateway with the updated configuration:
 
@@ -104,9 +98,7 @@ Through CEL expressions we can control which tools to expose.
 
 Review the following configuration, which exposes only `echo` and `search`:
 
-```shell panel="gateway"
-bat config-filtered.yaml
-```
+[View config-filtered.yaml](bat:gateway:config-filtered.yaml)
 
 A more powerful authorization policy can use identity information to expose a different set of tools to different categories of users, for example, by using a CEL expression that evaluates elements of the user's JWT token.
 
