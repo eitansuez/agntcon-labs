@@ -45,9 +45,7 @@ kubectl get pods -n agentgateway-system
 
 Review the manifest for a simple HTTP gateway in the `default` namespace:
 
-```shell
-bat gtw.yaml
-```
+[View gtw.yaml](bat:gtw.yaml)
 
 Apply it to the cluster:
 
@@ -67,9 +65,7 @@ Next, deploy the canonical [`server-everything`](https://github.com/modelcontext
 
 Review the deployment manifest:
 
-```shell
-bat server-everything.yaml
-```
+[View server-everything.yaml](bat:server-everything.yaml)
 
 Apply it to the cluster:
 
@@ -89,9 +85,7 @@ Define alternative [EnterpriseAgentgatewayBackend](https://docs.solo.io/agentgat
 
 Here is the first backend, which specifies _Standard_ mode:
 
-```shell
-bat std-backend.yaml
-```
+[View std-backend.yaml](bat:std-backend.yaml)
 
 The other backends alter only the `toolMode` field to "Search" or "Code".
 
@@ -113,9 +107,7 @@ kubectl get enterpriseagentgatewaybackends
 
 Below, we use a path-based convention to target each MCP server:
 
-```shell
-bat std-route.yaml
-```
+[View std-route.yaml](bat:std-route.yaml)
 
 The other two routes are similarly configured with their respective path.
 
@@ -251,9 +243,7 @@ A trivial example for the "server-everything" MCP server would be to echo the re
 
 Inspect the code you're about to run:
 
-```shell
-bat code.ts
-```
+[View code.ts](bat:code.ts)
 
 Send the code to the `run_code` tool for execution on the gateway:
 
