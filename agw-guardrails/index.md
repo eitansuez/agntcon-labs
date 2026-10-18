@@ -4,12 +4,9 @@ In this lab you will explore agentgateway's built-in filters, where a match agai
 
 Review the following configuration that proxies calls to OpenAI models:
 
-[View config-llm.yaml](bat:config-llm.yaml)
+[View config-llm.yaml](bat:gateway:config-llm.yaml){}
 
 The agentgateway binary is installed.
-
-> [!IMPORTANT]
-> [Configure a two-panel layout](zellij:two-pane) for the terminal.
 
 Start agentgateway:
 

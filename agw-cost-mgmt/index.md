@@ -10,8 +10,6 @@ You will:
 
 ## Setup
 
-[Configure a two-panel layout](zellij:two-pane) for the terminal.
-
 Verify that the agentgateway binary is installed by running it with the `--version` flag:
 
 ```shell panel="gateway"

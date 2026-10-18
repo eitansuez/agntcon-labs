@@ -6,16 +6,13 @@ In this lab, you will explore a feature known as [Virtual MCP](https://agentgate
 
 Run the ["Everything" MCP server](https://github.com/modelcontextprotocol/servers/blob/main/src/everything/README.md) locally on port 3001:
 
-```shell
+```shell panel="gateway"
 npx --yes @modelcontextprotocol/server-everything streamableHttp &
 ```
 
 Review the agentgateway proxy configuration:
 
-[View config-mcp.yaml](bat:config-mcp.yaml)
-
-> [!IMPORTANT]
-> [Configure a two-panel layout](zellij:two-pane) for the terminal.
+[View config-mcp.yaml](bat:gateway:config-mcp.yaml)
 
 The above configuration format is a short-hand that agentgateway offers for proxying MCP servers: any MCP servers listed under `targets` are automatically proxied on port 3000 by default.
 

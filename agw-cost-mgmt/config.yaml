@@ -26,3 +26,4 @@ services:
   port: 4000
   path: /ui
   header: false
+layout: two-pane
