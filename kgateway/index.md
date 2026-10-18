@@ -90,8 +90,8 @@ kubectl get httproute httpbin -o yaml | bat -l yaml
 
 Capture the gateway external IP address to the environment variable `GW_IP`:
 
-```shell
-export GW_IP=$(kubectl get gtw my-gateway -o jsonpath='{.status.addresses[0].value}')
+```env var="GW_IP" interpolated="true"
+kubectl get gtw my-gateway -o jsonpath='{.status.addresses[0].value}'
 ```
 
 Send a test request to `httpbin` through the gateway:

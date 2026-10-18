@@ -130,8 +130,8 @@ kubectl get gtw agentgateway-proxy \
 
 Capture the gateway IP address:
 
-```shell
-export GW_IP=$(kubectl get gtw agentgateway-proxy -o jsonpath='{.status.addresses[0].value}')
+```env var="GW_IP" interpolated="true"
+kubectl get gtw agentgateway-proxy -o jsonpath='{.status.addresses[0].value}'
 ```
 
 ### List tools
