@@ -91,7 +91,7 @@ Note how the tool names no longer carry a prefix.
 Through CEL expressions we can control which tools to expose.
 
 > [!IMPORTANT]
-> Stop agentgateway (`Ctrl+C`).
+> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
 
 Review the following configuration, which exposes only `echo` and `search`:
 
