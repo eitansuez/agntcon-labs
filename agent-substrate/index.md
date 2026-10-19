@@ -128,7 +128,11 @@ kubectl apply -f \
   https://github.com/istio/istio/raw/refs/heads/master/samples/curl/curl.yaml
 ```
 
-[Configure two panes](zellij:two-pane), so you can see the actor go from SUSPENDED state to RUNNING state when called.
+```zellij layout="two-pane"
+Configure two panes.
+```
+
+The idea is to catch the actor transition from SUSPENDED to RUNNING state.
 
 Watch the actor:
 
