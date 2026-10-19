@@ -129,7 +129,6 @@ kubectl apply -f \
 ```
 
 ```zellij layout="two-pane"
-Configure two panes.
 ```
 
 The idea is to catch the actor transition from SUSPENDED to RUNNING state.
