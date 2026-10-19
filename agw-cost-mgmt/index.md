@@ -208,7 +208,7 @@ curl -s http://localhost:4000/v1/chat/completions \
    }' | jq
 ```
 
-> [!IMPORTANT]
+> [!NOTE]
 > Each time you switch to the agentgateway UI after modifying the configuration, **click the "Reload" icon in the top-right corner of the page**.
 
 Visit the ["Logs" page](service:agentgateway-ui/llm/logs) again, and note that the log entries now report cost information in addition to token usage.

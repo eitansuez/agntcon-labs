@@ -83,7 +83,7 @@ helm upgrade --install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent \
 Note the configuration values that enable integration with agent-substrate and that configure the location of the agent-substrate API server.
 Other configuration fields set the default number of replicas for WorkerPools and to use gVisor for the sandbox configuration.
 
-> [!IMPORTANT]
+> [!NOTE]
 > Open the [kagent Dashboard](service:kagent-dashboard).
 > Ignore the stock instructions from the console about "accessing the UI."
 > On the first page you encounter in the UI, click "skip wizard."
