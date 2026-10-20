@@ -4,7 +4,7 @@ In this lab you will explore agentgateway's built-in filters, where a match agai
 
 Review the following configuration that proxies calls to OpenAI models:
 
-[View config-llm.yaml](bat:gateway:config-llm.yaml)
+[View config-llm.yaml](bat:config-llm.yaml){panel="gateway"}
 
 The agentgateway binary is installed.
 
@@ -34,7 +34,7 @@ Filters can be specified using regex patterns, but agentgateway also provides [b
 
 Add a guardrail, start with a request guardrail on email addresses, where a detection results in the request being rejected:
 
-[View config-request-guardrail.yaml](bat:gateway:config-request-guardrail.yaml)
+[View config-request-guardrail.yaml](bat:config-request-guardrail.yaml){panel="gateway"}
 
 Start agentgateway with the new configuration:
 
@@ -65,7 +65,7 @@ Review the following configuration, which filters for phone numbers and masks th
 > [!IMPORTANT]
 > [Stop agentgateway](key:Ctrl+C){panel="gateway"}
 
-[View config-response-filter.yaml](bat:gateway:config-response-filter.yaml)
+[View config-response-filter.yaml](bat:config-response-filter.yaml){panel="gateway"}
 
 Start agentgateway with the new configuration:
 
@@ -93,7 +93,7 @@ The telephone numbers cited in the response should all have been replace with th
 
 Review a configuration that substitutes the above phone pattern with the `phoneNumber` builtin, which goes beyond format matching and also checks validity:
 
-[View config-response-builtin.yaml](bat:gateway:config-response-builtin.yaml)
+[View config-response-builtin.yaml](bat:config-response-builtin.yaml){panel="gateway"}
 
 Restart the gateway with the updated configuration:
 
