@@ -212,7 +212,7 @@ For example:
 ```shell
 mcp-inspector --cli http://$GW_IP/mcp/standard --transport http \
   --method tools/call --tool-name echo --tool-arg message="hello world" \
-  jq
+  | jq
 ```
 
 With _Search_ mode, the process becomes a two-step operation.
