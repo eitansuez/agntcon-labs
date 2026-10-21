@@ -28,7 +28,9 @@ The team in charge of the gateway can create a Gateway resource and configure an
 
 Inspect the gateway resource:
 
-[View data/gtw.yaml](bat:data/gtw.yaml)
+```view
+data/gtw.yaml
+```
 
 Apply the Gateway resource:
 
@@ -64,7 +66,9 @@ An application team can create an HTTPRoute resource to expose the `httpbin` app
 
 Inspect the HTTPRoute resource:
 
-[View data/route.yaml](bat:data/route.yaml)
+```view
+data/route.yaml
+```
 
 Above, we associate the route with the host name `httpbin.example.com`.
 

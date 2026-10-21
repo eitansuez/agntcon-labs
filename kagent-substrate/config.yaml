@@ -27,6 +27,7 @@ env:
 # publishes the gateway.
 services:
 - name: kagent Dashboard
+  type: kagent
   port: 80
   path: /
   header: false

@@ -12,7 +12,9 @@ npx --yes @modelcontextprotocol/server-everything streamableHttp &
 
 Review the agentgateway proxy configuration:
 
-[View config-mcp.yaml](bat:config-mcp.yaml){panel="gateway"}
+```view panel="gateway"
+config-mcp.yaml
+```
 
 The above configuration format is a short-hand that agentgateway offers for proxying MCP servers: any MCP servers listed under `targets` are automatically proxied on port 3000 by default.
 
@@ -39,13 +41,16 @@ mcp-inspector --cli http://localhost:3000/mcp \
 
 ## Federate multiple MCP servers
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Review a proxy configuration that federates two MCP servers (we add a [second MCP server
 ](https://search.solo.io/mcp)):
 
-[View config-virtual.yaml](bat:config-virtual.yaml){panel="gateway"}
+```view panel="gateway"
+config-virtual.yaml
+```
 
 Restart agentgateway with the updated configuration:
 
@@ -64,12 +69,15 @@ Note how the response now aggregates the tools across both MCP servers, each pre
 
 ## Turn off prefixing
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Next, we tweak to the configuration and choose to turn off prefixing of the tool names:
 
-[View config-noprefix.yaml](bat:config-noprefix.yaml){panel="gateway"}
+```view panel="gateway"
+config-noprefix.yaml
+```
 
 Restart agentgateway with the updated configuration:
 
@@ -90,12 +98,15 @@ Note how the tool names no longer carry a prefix.
 
 Through CEL expressions we can control which tools to expose.
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Review the following configuration, which exposes only `echo` and `search`:
 
-[View config-filtered.yaml](bat:config-filtered.yaml){panel="gateway"}
+```view panel="gateway"
+config-filtered.yaml
+```
 
 A more powerful authorization policy can use identity information to expose a different set of tools to different categories of users, for example, by using a CEL expression that evaluates elements of the user's JWT token.
 

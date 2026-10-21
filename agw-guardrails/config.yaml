@@ -15,6 +15,7 @@ env:
 # guest still serves /ui at the root of this port.
 services:
 - name: Agentgateway UI
+  type: agentgateway
   port: 4000
   path: /ui
   header: false

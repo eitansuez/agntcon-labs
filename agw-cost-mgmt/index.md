@@ -45,7 +45,9 @@ ls -1 ~/.config/agentgateway
 
 Display the contents of `config.yaml`:
 
-[View config.yaml](bat:~/.config/agentgateway/config.yaml){panel="client"}
+```view panel="client"
+~/.config/agentgateway/config.yaml
+```
 
 By default, you get a starting configuration that specifies:
 
@@ -72,7 +74,9 @@ Agentgateway supports a [long list of LLM providers](https://agentgateway.dev/do
 
 Inspect the following configuration:
 
-[View config-llm.yaml](bat:config-llm.yaml){panel="client"}
+```view panel="client"
+config-llm.yaml
+```
 
 The configuration adds a entry to call out to OpenAI models.
 The API key is passed via an environment variable.
@@ -157,7 +161,9 @@ agctl costs import --out ~/.config/agentgateway/cost-catalog.json
 
 Review the following updated configuration file, which adds the `modelCatalog` configuration pointing to the file just produced:
 
-[View config-costs.yaml](bat:config-costs.yaml){panel="client"}
+```view panel="client"
+config-costs.yaml
+```
 
 Update agentgateway with the new configuration:
 
@@ -167,8 +173,9 @@ cp config-costs.yaml ~/.config/agentgateway/config.yaml
 
 The same process can be alternatively performed directly from the UI's ["Costs" page](service:agentgateway-ui/llm/costs), by clicking on "Refresh base costs."
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Restart agentgateway to highlight the cost information in the logs:
 
@@ -228,7 +235,9 @@ The API Key is supplied by default in the request Authorization header, and a re
 
 Review the following Virtual API key configuration, under `llm.policies`, which configure an API key for two teams: Engineering and Marketing.
 
-[View config-apikeys.yaml](bat:config-apikeys.yaml){panel="client"}
+```view panel="client"
+config-apikeys.yaml
+```
 
 Apply the updated configuration:
 
@@ -294,13 +303,17 @@ With group attribution in place, the natural next step is to configure limits pe
 
 Review the following rate limit server configuration (configured with artificially low limits to demonstrate rate limiting) that limits the engineering team to 200 tokens per minute and marketing to 50 tokens per minute:
 
-[View ratelimit-config/config.yaml](bat:ratelimit-config/config.yaml){panel="client"}
+```view panel="client"
+ratelimit-config/config.yaml
+```
 
 The rate limit server and its backing redis server are already running in Docker Compose.
 
 Review the following agentgateway configuration adds a `remoteRateLimit` section that maps each request's group attribution to the rate limit server's bucket key.
 
-[View config-ratelimit.yaml](bat:config-ratelimit.yaml){panel="client"}
+```view panel="client"
+config-ratelimit.yaml
+```
 
 Update agentgateway's configuration:
 

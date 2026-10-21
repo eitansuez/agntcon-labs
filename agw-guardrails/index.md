@@ -4,7 +4,9 @@ In this lab you will explore agentgateway's built-in filters, where a match agai
 
 Review the following configuration that proxies calls to OpenAI models:
 
-[View config-llm.yaml](bat:config-llm.yaml){panel="gateway"}
+```view panel="gateway"
+config-llm.yaml
+```
 
 The agentgateway binary is installed.
 
@@ -29,12 +31,15 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Filters can be specified using regex patterns, but agentgateway also provides [built-in patterns](https://agentgateway.dev/docs/standalone/latest/llm/prompt-guards/regex/#built-in-patterns) for email addresses, phone numbers, social security numbers, and credit card numbers.
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Add a guardrail, start with a request guardrail on email addresses, where a detection results in the request being rejected:
 
-[View config-request-guardrail.yaml](bat:config-request-guardrail.yaml){panel="gateway"}
+```view panel="gateway"
+config-request-guardrail.yaml
+```
 
 Start agentgateway with the new configuration:
 
@@ -62,10 +67,13 @@ The request should be rejected with the message `The request was rejected due to
 
 Review the following configuration, which filters for phone numbers and masks them in responses, this time using a **regex pattern instead of a built-in**.
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
-[View config-response-filter.yaml](bat:config-response-filter.yaml){panel="gateway"}
+```view panel="gateway"
+config-response-filter.yaml
+```
 
 Start agentgateway with the new configuration:
 
@@ -88,12 +96,15 @@ The telephone numbers cited in the response should all have been replace with th
 
 ## Try the phoneNumber builtin
 
-> [!IMPORTANT]
-> [Stop agentgateway](key:Ctrl+C){panel="gateway"}
+```key panel="gateway"
+Ctrl+C
+```
 
 Review a configuration that substitutes the above phone pattern with the `phoneNumber` builtin, which goes beyond format matching and also checks validity:
 
-[View config-response-builtin.yaml](bat:config-response-builtin.yaml){panel="gateway"}
+```view panel="gateway"
+config-response-builtin.yaml
+```
 
 Restart the gateway with the updated configuration:
 

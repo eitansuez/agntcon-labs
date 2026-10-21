@@ -83,8 +83,10 @@ helm upgrade --install kagent oci://ghcr.io/kagent-dev/kagent/helm/kagent \
 Note the configuration values that enable integration with agent-substrate and that configure the location of the agent-substrate API server.
 Other configuration fields set the default number of replicas for WorkerPools and to use gVisor for the sandbox configuration.
 
+```service kagent-dashboard
+```
+
 > [!NOTE]
-> Open the [kagent Dashboard](service:kagent-dashboard).
 > Ignore the stock instructions from the console about "accessing the UI."
 > On the first page you encounter in the UI, click "skip wizard."
 
@@ -100,7 +102,9 @@ The kagent CRD `SandboxAgent` designates an agent that is to be run on agent-sub
 
 Inspect the specification for a simple declarative SandboxAgent:
 
-[View sandbox-agent.yaml](bat:sandbox-agent.yaml)
+```view
+sandbox-agent.yaml
+```
 
 The `workerPoolRef` instructs kagent to map the agent onto the WorkerPool `kagent-default`.
 
