@@ -96,7 +96,7 @@ export GW_IP=$(kubectl get gtw my-gateway -o jsonpath='{.status.addresses[0].val
 
 Send a test request to `httpbin` through the gateway:
 
-```shell completion="true"
+```shell
 curl -s http://httpbin.example.com/headers --resolve httpbin.example.com:80:$GW_IP | jq
 ```
 
