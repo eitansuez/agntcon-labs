@@ -130,9 +130,11 @@ Confirm that:
 
 ## Inspect the state of agent substrate
 
-Open the [kagent Dashboard](service:kagent-dashboard).
+Review the Substrate dashboard:
 
-Review the [Substrate dashboard](service:kagent-dashboard/substrate) (under `View->Substrate`).
+```service kagent-dashboard subpath="/substrate" subpath-caption="Substrate" tab="substrate"
+```
+
 It lists:
 
 - Worker pools: you should see the `kagent-default` worker pool.
@@ -147,12 +149,15 @@ Keep the page open.
 
 The `hello-substrate` agent listed as a card on the kagent home page.
 
-Begin a [chat session](service:kagent-dashboard/agents/kagent/hello-substrate/chat) with the `hello-substrate` agent.
+Begin a chat session with the `hello-substrate` agent:
+
+```service kagent-dashboard subpath="/agents/kagent/hello-substrate/chat" subpath-caption="Chat" tab="chat"
+```
 
 Each time you send the agent a message, the substrate dashboard will show the `hello-substrate` actor's status change from SUSPENDED to RUNNING.
 As soon as the request is handled, kagent puts the actor back into SUSPENDED state.
 
-The best way to see this in action is to open the Substrate dashboard in a separate tab and switch to that tab immediately each time after sending the agent a message.
+The best way to see this in action is to switch to the Substrate dashboard tab you left open, immediately each time after sending the agent a message.
 
 ## Summary
 
