@@ -22,7 +22,8 @@ The simplest way to start with agentgateway is to just run it:
 agentgateway
 ```
 
-Inspect the console logs.  Here are some relevant pieces of information:
+Inspect the console logs.
+Here are some relevant pieces of information:
 
 ```console
 state_manager   Watching .. ~/.config/agentgateway/config.yaml
@@ -59,7 +60,8 @@ Agentgateway is designed to proxy agentic services, such as MCP servers and mode
 
 ### The UI
 
-[Explore the UI](service:agentgateway-ui). It opens in a new browser tab.
+```service agentgateway-ui
+```
 
 - If presented with a dialog, click Continue.
 - LLMs, MCP Servers or traditional services can be configured directly from the UI, but in this lab you will directly modify the configuration file.
@@ -126,18 +128,25 @@ Token consumption is captured in the logs!
 
 ### Review the UI
 
-[Switch to the agentgateway UI](service:agentgateway-ui), and **click the "Refresh" icon in the top-right corner of the page**.
+```service agentgateway-ui subpath="/llm/models" subpath-caption="Models"
+```
 
-- Under ["Models"](service:agentgateway-ui/llm/models), note that the OpenAI model is configured.
-- Under ["Logs"](service:agentgateway-ui/llm/logs), you should see the recent calls, and the model and provider information.
-- Expand the top log entry, and note the timing and token usage information is captured as well.
+**Click the _Refresh_ icon in the top-right corner of the page**, so the UI picks up the calls you just made.
+Note that OpenAI is configured as a model.
+
+```service agentgateway-ui subpath="/llm/logs" subpath-caption="Logs"
+```
+
+You should see the recent calls, and the model and provider information.
+
+Expand the top log entry, and note the timing and token usage information is captured as well.
 
 Using the selectors in the top panel, try to filter the list of log entries by model.
 
-Under "Analytics", [group LLM traffic by model](service:agentgateway-ui/llm/analytics?groupBy=model).
+Under _Analytics_, group the LLM traffic by model:
 
-> [!IMPORTANT]
-> Come back to this lab page.
+```service agentgateway-ui subpath="/llm/analytics?groupBy=model" subpath-caption="Analytics"
+```
 
 ## The agentgateway CLI
 
@@ -220,9 +229,6 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Visit the ["Logs" page](service:agentgateway-ui/llm/logs) again, and note that the log entries now report cost information in addition to token usage.
 
-> [!IMPORTANT]
-> Come back to this lab page.
-
 ## Virtual API keys for group and user attribution
 
 So far, you can monitor token usage and cost, and even attribute costs by provider and model.
@@ -293,9 +299,6 @@ curl -s http://localhost:4000/v1/chat/completions \
 
 Navigate to the ["Logs" page](service:agentgateway-ui/llm/logs) and note that the latest log entries have a group attribution.
 Visit the "Analytics" page to see the [token](service:agentgateway-ui/llm/analytics?groupBy=group) or [cost](service:agentgateway-ui/llm/analytics?groupBy=group&metric=cost) breakdown by group.
-
-> [!IMPORTANT]
-> Come back to this lab page.
 
 ## Apply usage limits
 

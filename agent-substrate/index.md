@@ -61,7 +61,8 @@ Here is a brief description of the system components:
 - `atelet` DaemonSet helps schedule an actor on a free worker by driving `ateom`, a process that runs inside each worker pod.
 - `atenet-router` routes requests to actors.
 - `atenet-egress` routes an actor's outbound traffic through the egress gateway.
-- `postgres` is the store for the control plane. It lets agent-substrate keep track of actors, workers, and their state (free or assigned).
+- `postgres` is the store for the control plane.
+  It lets agent-substrate keep track of actors, workers, and their state (free or assigned).
 - `rustfs` is a bucket where state snapshots are stored to support suspending and resuming actors.
 
 For more information, see the project's [architecture documentation page](https://github.com/agent-substrate/substrate/blob/main/docs/architecture.md).

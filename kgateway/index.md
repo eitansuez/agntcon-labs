@@ -8,7 +8,8 @@ You will:
 - Configure a routing rule to a backend workload, and
 - Verify that requests are routed as expected.
 
-The cluster is already running, and kgateway is already installed. The gateway and route manifests are in `data/` in this home directory.
+The cluster is already running, and kgateway is already installed.
+The gateway and route manifests are in `data/` in this home directory.
 
 ## Deploy `httpbin`
 

@@ -137,7 +137,8 @@ It lists:
 
 - Worker pools: you should see the `kagent-default` worker pool.
 - Actor templates: an actor template is created per sandbox agent; there should be one present for `hello-substrate`.
-- Actors: a gold snapshot for the actor is created when the actor template was reconciled. The actor for `hello-substrate` is lazily created upon initial interaction with the agent.
+- Actors: a gold snapshot for the actor is created when the actor template was reconciled.
+  The actor for `hello-substrate` is lazily created upon initial interaction with the agent.
 - Worker: since the worker pool was configured with a single replica, only one worker is listed.
 
 Keep the page open.

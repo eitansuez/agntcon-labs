@@ -209,7 +209,8 @@ ls -lF out/*-list.json
 
 _Search_ mode is ~ 30% the size of the standard list, and that's for a single example MCP server.
 
-For _Standard_ mode, the payload grows linearly with the number of tools.  For _Search_ mode it stays the same.
+For _Standard_ mode, the payload grows linearly with the number of tools.
+For _Search_ mode it stays the same.
 
 ### How tool calls work
 
