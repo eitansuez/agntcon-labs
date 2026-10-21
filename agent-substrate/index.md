@@ -135,7 +135,7 @@ The idea is to catch the actor transition from SUSPENDED to RUNNING state.
 
 Watch the actor:
 
-```shell panel="gateway"
+```shell panel="watch"
 watch -n 1 kubectl ate get actor my-counter-1 --atespace ate-demo-counter
 ```
 
